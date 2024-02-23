@@ -1,0 +1,203 @@
+// Spacing scale used for padding, margin, and gap
+$spacings: (
+  0: 0,
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 0.75rem,
+  4: 1rem,
+  "18px": 1.125rem,
+  5: 1.25rem,
+  "26px": 1.625rem,
+  6: 1.5rem,
+  7: 1.75rem,
+  8: 2rem,
+  9: 2.25rem,
+  10: 2.5rem,
+  12: 3rem,
+  14: 3.5rem,
+  16: 4rem,
+  20: 5rem,
+  24: 6rem,
+  28: 7rem,
+  32: 8rem,
+  36: 9rem,
+  40: 10rem,
+  44: 11rem,
+  48: 12rem,
+  52: 13rem,
+  56: 14rem,
+  60: 15rem,
+  64: 16rem,
+  72: 18rem,
+  80: 20rem,
+  96: 24rem,
+  128: 32rem,
+);
+
+// Padding Utilities
+@each $key, $value in $spacings {
+  .p-#{$key} {
+    padding: $value !important;
+  }
+  .pt-#{$key},
+  .py-#{$key} {
+    padding-top: $value !important;
+  }
+  .pr-#{$key},
+  .px-#{$key} {
+    padding-right: $value !important;
+  }
+  .pb-#{$key},
+  .py-#{$key} {
+    padding-bottom: $value !important;
+  }
+  .pl-#{$key},
+  .px-#{$key} {
+    padding-left: $value !important;
+  }
+}
+
+// Margin Utilities
+@each $key, $value in $spacings {
+  .m-#{$key} {
+    margin: $value !important;
+  }
+  .mt-#{$key},
+  .my-#{$key} {
+    margin-top: $value !important;
+  }
+  .mr-#{$key},
+  .mx-#{$key} {
+    margin-right: $value !important;
+  }
+  .mb-#{$key},
+  .my-#{$key} {
+    margin-bottom: $value !important;
+  }
+  .ml-#{$key},
+  .mx-#{$key} {
+    margin-left: $value !important;
+  }
+}
+
+// Gap Utilities
+@each $key, $value in $spacings {
+  .gap-#{$key} {
+    gap: $value !important;
+  }
+}
+
+// Border Radius Scale
+$border-radiuses: (
+  none: 0,
+  sm: 0.125rem,
+  DEFAULT: 0.25rem,
+  md: 0.375rem,
+  lg: 0.5rem,
+  xl: 0.75rem,
+  2xl: 1rem,
+  3xl: 1.5rem,
+  full: 9999px,
+);
+
+// Border Radius Utilities
+@each $name, $radius in $border-radiuses {
+  // All corners
+  .rounded-#{$name} {
+    border-radius: $radius !important;
+  }
+
+  // Top corners
+  .rounded-t-#{$name} {
+    border-top-left-radius: $radius !important;
+    border-top-right-radius: $radius !important;
+  }
+
+  // Right corners
+  .rounded-r-#{$name} {
+    border-top-right-radius: $radius !important;
+    border-bottom-right-radius: $radius !important;
+  }
+
+  // Bottom corners
+  .rounded-b-#{$name} {
+    border-bottom-right-radius: $radius !important;
+    border-bottom-left-radius: $radius !important;
+  }
+
+  // Left corners
+  .rounded-l-#{$name} {
+    border-top-left-radius: $radius !important;
+    border-bottom-left-radius: $radius !important;
+  }
+
+  // Top left corner
+  .rounded-tl-#{$name} {
+    border-top-left-radius: $radius !important;
+  }
+
+  // Top right corner
+  .rounded-tr-#{$name} {
+    border-top-right-radius: $radius !important;
+  }
+
+  // Bottom right corner
+  .rounded-br-#{$name} {
+    border-bottom-right-radius: $radius !important;
+  }
+
+  // Bottom left corner
+  .rounded-bl-#{$name} {
+    border-bottom-left-radius: $radius !important;
+  }
+}
+
+// Special Cases for Height and Width
+.h-auto {
+  height: auto !important;
+}
+.w-auto {
+  width: auto !important;
+}
+.h-full {
+  height: 100% !important;
+}
+.w-full {
+  width: 100% !important;
+}
+.h-screen {
+  height: 100vh !important;
+}
+.w-screen {
+  width: 100vw !important;
+}
+
+// Height and Width Utilities
+@each $key, $value in $spacings {
+  .h-#{$key} {
+    height: $value !important;
+  }
+  .w-#{$key} {
+    width: $value !important;
+  }
+}
+
+// Additional utilities as needed, for example, min/max width/height
+.min-w-full {
+  min-width: 100% !important;
+}
+.max-w-full {
+  max-width: 100% !important;
+}
+.min-h-full {
+  min-height: 100% !important;
+}
+.max-h-full {
+  max-height: 100% !important;
+}
+
+.container-default {
+  max-width: 1270px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
