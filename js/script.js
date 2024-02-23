@@ -18,20 +18,23 @@ btnHamburger.addEventListener("click", function () {
   }
 });
 
-// Autohide Navbar on Scroll
-let lastScrollY = window.scrollY;
-const navbar = document.getElementById("navbar");
-const scrollThreshold = 50; // Delay before hide or show navbar in pixels
+// Autohide Navbar on Scroll using gsap
+gsap.registerPlugin(ScrollTrigger);
 
-window.addEventListener("scroll", () => {
-  const currentScrollY = window.scrollY;
+let lastScrollTop = 0;
 
-  if (Math.abs(lastScrollY - currentScrollY) >= scrollThreshold) {
-    if (lastScrollY < currentScrollY) {
-      navbar.classList.add("hide");
-    } else {
-      navbar.classList.remove("hide");
+ScrollTrigger.create({
+  onUpdate: (self) => {
+    let scrollDirection = self.direction;
+
+    if (scrollDirection === 1 && self.scroll() > lastScrollTop) {
+      // Scrolling down
+      gsap.to("#navbar", { y: "-100%", duration: 0.1 });
+    } else if (scrollDirection === -1) {
+      // Scrolling up
+      gsap.to("#navbar", { y: "0%", duration: 0.1 });
     }
-    lastScrollY = currentScrollY;
-  }
+    lastScrollTop = self.scroll();
+  },
+  end: "bottom bottom",
 });
