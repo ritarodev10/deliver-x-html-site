@@ -1,0 +1,36 @@
+// Breakpoints
+$breakpoints-up: (
+  "xsmall": "20em",
+  // 320px, targeting extra small devices like small smartphones
+  "small": "30em",
+  // 480px, targeting larger smartphones
+  "medium": "40em",
+  // 640px, targeting tablets and small desktops/laptops
+  "large": "64em",
+  // 1024px, targeting large desktops/laptops
+  "xlarge": "87.5em",
+  // 1400px, targeting extra large screens
+);
+
+$breakpoints-down: (
+  "xsmall": "29.9375em",
+  // 479px, just below small devices
+  "small": "39.9375em",
+  // 639px, just below medium devices
+  "medium": "63.9375em",
+  // 1023px, just below large devices
+  "large": "87.4375em",
+  // 1399px, just below extra large devices
+);
+
+@mixin breakpoint-up($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}

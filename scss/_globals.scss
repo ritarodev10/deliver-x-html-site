@@ -71,3 +71,45 @@ img {
     border: 1px solid $primary !important;
   }
 }
+
+// Visibility
+.hide-for-mobile {
+  @include breakpoint-down(medium) {
+    display: none !important;
+  }
+}
+
+.hide-for-desktop {
+  @include breakpoint-up(large) {
+    display: none !important;
+  }
+}
+
+.show-for-tablet {
+  @include breakpoint-down(small) {
+    display: none !important;
+  }
+}
+
+// Container
+.container-default {
+  max-width: 1270px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+
+  @include breakpoint-down(xsmall) {
+    padding: 0 1.25rem;
+  }
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-col-space-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

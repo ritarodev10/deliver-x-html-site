@@ -1,16 +1,55 @@
 header {
   box-shadow: 0 3px 12px rgba(18, 18, 18, 0.06);
+  position: fixed;
+  width: 100%;
+  transform: translateX(0);
+  transition: transform 0.4s ease-in-out;
 
-  nav {
-    .logo {
+  &.hide {
+    transform: translateY(-100%);
+  }
+
+  #nav-container {
+    top: 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    @include breakpoint-down(medium) {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .header-logo {
       transform-style: preserve-3d;
       transition: transform 0.3s;
+
+      @include breakpoint-down(xsmall) {
+        max-width: 123px;
+      }
+
+      @include breakpoint-up(small) {
+        @include breakpoint-down(medium) {
+          max-width: 148px;
+        }
+      }
 
       &:hover {
         transform: scale3d(0.95, 0.95, 1.01);
       }
     }
     .menu {
+      gap: 2rem;
+
+      @include breakpoint-down(xsmall) {
+        gap: 1.25rem;
+      }
+
+      @include breakpoint-up(medium) {
+        @include breakpoint-down(large) {
+          gap: 1.5rem;
+        }
+      }
+
       .menu-item {
         display: flex;
         align-items: center;
@@ -47,10 +86,140 @@ header {
           font-size: 11px;
         }
       }
+
+      #call-to-action {
+        .btn {
+          line-height: 1.125;
+        }
+      }
+
+      #hamburger-menu-toggle {
+        display: block;
+        position: relative;
+        z-index: 1;
+        -webkit-user-select: none;
+        user-select: none;
+
+        input {
+          display: block;
+          width: 40px;
+          height: 32px;
+          position: absolute;
+          top: -7px;
+          left: -5px;
+          cursor: pointer;
+          opacity: 0;
+          z-index: 2;
+          -webkit-touch-callout: none;
+        }
+
+        span {
+          background: $neutral;
+          display: block;
+          height: 4px;
+          margin-bottom: 5px;
+          position: relative;
+          border-radius: 3px;
+          z-index: 1;
+          transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+            rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+          transform-style: preserve-3d;
+          transition: transform 0.3s, width 0.3s;
+
+          &.top {
+            width: 30px;
+            margin-top: 4px;
+            margin-bottom: 10px;
+          }
+
+          &.bottom {
+            width: 20px;
+            margin-left: auto;
+          }
+        }
+
+        input:checked ~ span {
+          opacity: 1;
+          transform: rotate(45deg) translate(-2px, -1px);
+
+          &.top {
+            transform: translate3d(0px, 8px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+              rotateY(0deg) rotateZ(135deg) skew(0deg, 0deg);
+          }
+
+          &.bottom {
+            width: 30px;
+            transform: translate3d(0px, -6px, 0px) scale3d(1, 1, 1)
+              rotateX(0deg) rotateY(0deg) rotateZ(45deg) skew(0deg, 0deg);
+          }
+        }
+      }
     }
 
-    .btn {
-      line-height: 1.125;
+    #mobile-nav-container {
+      position: absolute;
+      height: 90vh;
+      width: 100vw;
+      top: 100%;
+      left: 0;
+      overflow: hidden;
+
+      #mobile-nav-items {
+        padding-top: 50px;
+        padding-bottom: 60px;
+        padding-left: 20px;
+        padding-right: 20px;
+        transform: translateY(-100vh);
+        transition: transform 400ms ease 0s;
+
+        &.open {
+          transform: translateY(0px) translateX(0px);
+          transition: transform 400ms ease 0s;
+        }
+
+        .menu-item {
+          font-size: 28px;
+          display: flex;
+          align-items: center;
+          gap: 0.35rem;
+
+          a,
+          i {
+            line-height: 1.125;
+            transition: color 0.3s;
+          }
+
+          i {
+            margin-bottom: 4px;
+            transition: transform 0.4s ease;
+          }
+
+          &.active {
+            a {
+              color: $primary;
+            }
+          }
+
+          &:hover {
+            a,
+            i {
+              color: $primary;
+            }
+
+            i {
+              transform: rotate(180deg);
+            }
+          }
+
+          i {
+            font-size: 16px;
+          }
+
+          .btn {
+            line-height: 1.125;
+          }
+        }
+      }
     }
   }
 }
