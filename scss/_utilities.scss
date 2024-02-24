@@ -13,12 +13,14 @@ $spacings: (
   7: 1.75rem,
   8: 2rem,
   9: 2.25rem,
+  "38px": 2.375rem,
   10: 2.5rem,
   12: 3rem,
   14: 3.5rem,
   16: 4rem,
   20: 5rem,
   24: 6rem,
+  "110px": 6.875rem,
   28: 7rem,
   32: 8rem,
   36: 9rem,
@@ -195,4 +197,22 @@ $border-radiuses: (
 }
 .max-h-full {
   max-height: 100% !important;
+}
+
+// Font weight
+.fw-light {
+  font-weight: 400 !important;
+}
+
+.fw-normal {
+  font-weight: 500 !important;
+}
+
+.fw-bold {
+  font-weight: 700 !important;
+}
+
+// Justify Content
+.justify-self-end {
+  justify-self: end !important;
 }

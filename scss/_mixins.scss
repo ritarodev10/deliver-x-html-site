@@ -1,25 +1,29 @@
 // Breakpoints
+
 $breakpoints-up: (
   "xsmall": "30em",
-  // 480px, targeting larger smartphones
+  // 480px
   "small": "48.125em",
-  // 770px, targeting tablets
+  // 770px
   "medium": "61.875em",
-  // 990px, targeting small desktops/laptops
+  // 990px
   "large": "87.5em",
-  // 1400px, targeting large desktops/laptops
+  // 1400px
+  "xlarge": "120em",
+  // 1920px
 );
 
-// Adjusted to be just 1px less than the specified breakpoints
 $breakpoints-down: (
   "xsmall": "29.9375em",
-  // 479px, just below small devices (480px - 1px)
+  // just below 480px
   "small": "48.0625em",
-  // 769px, just below medium devices (770px - 1px)
+  // just below 770px
   "medium": "61.8125em",
-  // 989px, just below large devices (990px - 1px)
+  // just below 990px
   "large": "87.4375em",
-  // 1399px, just below extra large devices (1400px - 1px)
+  // just below 1400px
+  "xlarge": "119.9375em",
+  // just below 1920px
 );
 
 @mixin breakpoint-up($size) {
