@@ -1,0 +1,154 @@
+main {
+  section:nth-child(odd) {
+    background-color: $neutral-200;
+  }
+
+  section:nth-child(even) {
+    background-color: $neutral-100;
+  }
+
+  // HERO SECTION
+  #hero {
+    padding-top: 70px;
+    padding-bottom: 127px;
+
+    .inner-container {
+      grid-row-gap: 100px;
+
+      @include breakpoint-down(medium) {
+        grid-row-gap: 80px;
+      }
+
+      @include breakpoint-down(small) {
+        grid-row-gap: 70px;
+      }
+
+      @include breakpoint-down(xsmall) {
+        grid-row-gap: 60px;
+      }
+    }
+
+    #hero-top {
+      grid-template-columns: 1.25fr 1fr;
+
+      @include breakpoint-down(medium) {
+        grid-template-columns: 1.25fr;
+        grid-row-gap: 60px;
+        max-width: 680px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .hero-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+
+        #hero-image {
+          max-width: 500px;
+
+          #hero-two,
+          #hero-three {
+            top: 50%;
+            left: 50%;
+          }
+        }
+      }
+
+      @include breakpoint-down(small) {
+        grid-row-gap: 50px;
+      }
+
+      p {
+        max-width: 590px;
+        margin-bottom: 0;
+
+        @include breakpoint-down(small) {
+          font-size: 16px;
+        }
+      }
+
+      #hero-two {
+        max-width: 45%;
+      }
+
+      #hero-three {
+        max-width: 55%;
+      }
+    }
+
+    #stats {
+      grid-template-columns: auto auto auto auto;
+
+      @include breakpoint-down(small) {
+        column-gap: 40px;
+        grid-row-gap: 40px;
+        grid-template-columns: auto auto;
+        justify-content: center !important;
+      }
+
+      @include breakpoint-down(xsmall) {
+        column-gap: 30px;
+        grid-row-gap: 30px;
+        justify-content: space-around !important;
+      }
+
+      .stats-title {
+        color: $neutral-800;
+        font-size: 56px;
+        font-weight: 700;
+        line-height: 1.179em;
+
+        @include breakpoint-down(medium) {
+          font-size: 48px;
+        }
+
+        @include breakpoint-down(small) {
+          font-size: 40px;
+        }
+
+        @include breakpoint-down(xsmall) {
+          font-size: 33px;
+        }
+
+        span {
+          font-weight: 700;
+          color: $primary;
+        }
+      }
+
+      .stats-subtitle {
+        color: $neutral-600;
+        font-size: 18px;
+        line-height: 1.111em;
+
+        @include breakpoint-down(small) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  // MISSION SECTION
+  #mission {
+    padding-top: 166px;
+    padding-bottom: 166px;
+
+    @include breakpoint-down(medium) {
+      padding-top: 138px;
+      padding-bottom: 138px;
+    }
+
+    @include breakpoint-down(small) {
+      padding-top: 116px;
+      padding-bottom: 116px;
+    }
+
+    @include breakpoint-down(xsmall) {
+      padding-top: 96px;
+      padding-bottom: 96px;
+    }
+  }
+}

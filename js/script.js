@@ -18,23 +18,37 @@ btnHamburger.addEventListener("click", function () {
   }
 });
 
-// Autohide Navbar on Scroll using gsap
-gsap.registerPlugin(ScrollTrigger);
+// Autohide Navbar on Scroll
+// let lastScrollY = window.scrollY;
+// const navbar = document.getElementById("navbar");
+// const scrollThreshold = 30; // Delay before hide or show navbar in pixels
 
-let lastScrollTop = 0;
+// window.addEventListener("scroll", () => {
+//   const currentScrollY = window.scrollY;
 
-ScrollTrigger.create({
-  onUpdate: (self) => {
-    let scrollDirection = self.direction;
+//   if (Math.abs(lastScrollY - currentScrollY) >= scrollThreshold) {
+//     if (lastScrollY < currentScrollY) {
+//       navbar.classList.add("hide");
+//       navbar.classList.remove("show");
+//     } else {
+//       navbar.classList.remove("hide");
+//       navbar.classList.add("show");
+//     }
+//     lastScrollY = currentScrollY;
+//   }
+// });
 
-    if (scrollDirection === 1 && self.scroll() > lastScrollTop) {
-      // Scrolling down
-      gsap.to("#navbar", { y: "-100%", duration: 0.1 });
-    } else if (scrollDirection === -1) {
-      // Scrolling up
-      gsap.to("#navbar", { y: "0%", duration: 0.1 });
-    }
-    lastScrollTop = self.scroll();
-  },
-  end: "bottom bottom",
-});
+// Sticky menu GSAP animation
+// gsap.registerPlugin(ScrollTrigger);
+
+// gsap.to("#navbar", {
+//   scrollTrigger: {
+//     trigger: "#navbar",
+//     start: "top+=1 top",
+//     endTrigger: "html",
+//     end: "bottom top",
+//     pin: true,
+//     pinSpacing: false,
+//   },
+//   y: 0, // Ensure the menu is in the correct position to start with
+// });

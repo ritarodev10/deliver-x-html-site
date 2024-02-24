@@ -1,12 +1,17 @@
 header {
+  background: $neutral-100;
   box-shadow: 0 3px 12px rgba(18, 18, 18, 0.06);
-  position: fixed;
   width: 100%;
-  transform: translateX(0);
-  transition: transform 0.4s ease-in-out;
+  // position: sticky;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
 
   &.hide {
-    transform: translateY(-100%);
+    transform: translateY(-100%) !important;
+  }
+
+  &.show {
+    transform: translateY(0) !important;
   }
 
   #nav-container {
@@ -54,6 +59,7 @@ header {
         display: flex;
         align-items: center;
         gap: 0.35rem;
+        font-size: 16px;
 
         a,
         i {
@@ -157,6 +163,7 @@ header {
     }
 
     #mobile-nav-container {
+      display: none;
       position: absolute;
       height: 90vh;
       width: 100vw;

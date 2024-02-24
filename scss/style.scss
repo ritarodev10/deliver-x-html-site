@@ -3,17 +3,85 @@
 
 @import "utilities";
 @import "header";
+@import "main";
+@import "footer";
 @import "globals";
 
 @font-face {
   font-family: "metropolis";
-  src: url("../fonts/Metropolis-normal-700-100.otf") format("opentype");
-  font-weight: 500;
+  src: url("../fonts/Metropolis-normal-400-100.otf") format("opentype");
+  font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   font-family: "metropolis";
   src: url("../fonts/Metropolis-normal-500-100.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "metropolis";
+  src: url("../fonts/Metropolis-normal-700-100.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
+}
+
+.triger {
+  height: 100px;
+  width: 100px;
+  background-color: red;
+}
+
+.headline {
+  background: #2d4e86;
+  border-radius: 6px;
+  height: 4em;
+  width: 100%;
+}
+
+.text {
+  margin: 0.8em 0 0 0;
+  background: #2d4e86;
+  border-radius: 6px;
+  height: 1em;
+  width: 100%;
+}
+
+.gallery {
+  display: flex;
+  outline: 1px solid red;
+}
+
+.left {
+  width: 50%;
+}
+
+.detailsWrapper {
+  margin: auto;
+  width: 80%;
+}
+
+.details {
+  height: 100vh;
+  outline: 1px solid green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right {
+  outline: 1px solid purple;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.photos {
+  width: 40vw;
+  height: 40vw;
+  background: maroon;
 }

@@ -17,10 +17,18 @@
 // Body global styles
 body {
   font-family: metropolis, sans-serif;
-  font-size: 1rem;
+  font-size: 18px;
   line-height: 1.6;
   color: #333;
   background-color: #fff;
+
+  @include breakpoint-down(small) {
+    font-size: 16px;
+  }
+}
+
+.page-wrapper {
+  min-height: 100vh;
 }
 
 a {
@@ -35,6 +43,69 @@ li {
   list-style-type: none;
   padding: 0;
   margin: 0;
+}
+
+// Text
+h1 {
+  color: $neutral;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 62px;
+  font-weight: 700;
+  line-height: 1.161em;
+
+  @include breakpoint-down(medium) {
+    font-size: 52px;
+  }
+
+  @include breakpoint-down(small) {
+    font-size: 43px;
+    margin-bottom: 10px;
+  }
+
+  @include breakpoint-down(xsmall) {
+    font-size: 36px;
+  }
+}
+
+h2 {
+  color: $neutral-800;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.227em;
+}
+
+h3 {
+  color: $neutral-800;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.417em;
+}
+
+p {
+  color: $neutral-600;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.667em;
+}
+
+.subtitle {
+  color: $primary;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.111em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.no-text-wrap {
+  white-space: nowrap;
 }
 
 // Images
@@ -60,6 +131,7 @@ img {
 .btn-secondary {
   background-color: #fff !important;
   color: #000 !important;
+  font-weight: 500;
   box-shadow: $shadow-xs !important;
   border: $border-xs !important;
   transition: background-color 0.3s, box-shadow 0.3s, border 0.3s;
@@ -80,7 +152,7 @@ img {
 }
 
 .hide-for-desktop {
-  @include breakpoint-up(large) {
+  @include breakpoint-up(medium) {
     display: none !important;
   }
 }
@@ -91,7 +163,7 @@ img {
   }
 }
 
-// Container
+// Wrapper
 .container-default {
   max-width: 1270px;
   margin: 0 auto;
@@ -100,6 +172,21 @@ img {
   @include breakpoint-down(xsmall) {
     padding: 0 1.25rem;
   }
+}
+
+.inner-wrapper {
+  @include breakpoint-down(medium) {
+    max-width: 680px;
+  }
+}
+
+.image-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 14px 42px 0 $general-shadow-4;
+  transform: translate(0);
 }
 
 .flex-space-between {
@@ -112,4 +199,53 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+// Grid
+.grid-1-column {
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-auto-columns: 1fr;
+  display: grid;
+}
+
+.grid-2-columns {
+  grid-column-gap: 28px;
+  grid-row-gap: 28px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-auto-columns: 1fr;
+  align-items: center;
+  display: grid;
+}
+
+.grid-4-columns {
+  grid-column-gap: 28px;
+  grid-row-gap: 28px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-auto-columns: 1fr;
+  display: grid;
+}
+
+// Centering
+.center-element {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Position
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+// Color Palette
+.color-primary {
+  color: $primary;
 }
